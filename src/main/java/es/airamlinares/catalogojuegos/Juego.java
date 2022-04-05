@@ -5,7 +5,7 @@ public class Juego {
     private String desarrolladora;
     private String fechaPublicacion;
     private int mediaHoras;
-    private float precio;
+    private double precio;
     
     public Juego(){
         
@@ -44,11 +44,11 @@ public class Juego {
         this.mediaHoras = mediaHoras;
     }
     
-    public float getPrecio(){
+    public double getPrecio(){
         return precio;
     }
     
-    public void setPrecio(float precio){
+    public void setPrecio(double precio){
         this.precio = precio;
     }
     
@@ -64,7 +64,18 @@ public class Juego {
     public String toString(){
         String r = "";
         r += "Titulo: " + titulo + "\n";
-        r += "Autor: " + desarrolladora;
+        r += "Desarrolladora: " + desarrolladora + "\n";
+        r += "Fecha Publicacion: " + fechaPublicacion + "\n";
+        r += "Horas: " + mediaHoras + "\n";
+        r += "Precio: " + precio;
+        return r;
+    }
+    public String horasToString(){
+        String r = "Horas: " + mediaHoras;
+        return r;
+    }
+    public String precioToString(){
+        String r = "Precio: " + precio;
         return r;
     }
 }

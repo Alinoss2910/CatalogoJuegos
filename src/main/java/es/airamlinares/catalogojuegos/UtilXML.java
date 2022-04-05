@@ -32,7 +32,6 @@ public class UtilXML {
         try {
                 FileChooser fileChooser = new FileChooser();
                 fileChooser.setTitle("Load");
-                //fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("XML", ".xml"));
                 File file = fileChooser.showOpenDialog(stage);
                 JAXBContext contexto = JAXBContext.newInstance(Juegos.class);
                 Unmarshaller unmarshall = contexto.createUnmarshaller();
