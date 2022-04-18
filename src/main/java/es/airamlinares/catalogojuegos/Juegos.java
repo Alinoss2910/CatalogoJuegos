@@ -6,9 +6,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 public class Juegos {
-    private ArrayList<Juego> listaJuegos = new ArrayList();
+    private ArrayList<Juego> listaJuegos = new ArrayList();//Crea la lista de juegos
     
-    public ArrayList<Juego> getListaJuegos(){
+    public ArrayList<Juego> getListaJuegos(){//Devuelve la lista de juegos
         return listaJuegos;
     }
     @XmlElement(name="Juego")
@@ -16,7 +16,7 @@ public class Juegos {
         this.listaJuegos = listaJuegos;
     }
     public void fusionarLibros(Stage stage) {
-        Juegos juegosNuevos = UtilXML.importarDatosXML(stage, this);
-        this.getListaJuegos().addAll(juegosNuevos.getListaJuegos());
+        Juegos juegosNuevos = UtilXML.importarDatosXML(stage, this);//Carga el nuevo archivo XML importado
+        this.getListaJuegos().addAll(juegosNuevos.getListaJuegos());//Añade juegosNuevos a la lista
     }
 }
