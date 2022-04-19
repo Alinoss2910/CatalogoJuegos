@@ -5,6 +5,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -22,10 +24,19 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         VBox paneRoot = new VBox(20);
-        paneRoot.setAlignment(Pos.CENTER);
+        paneRoot.setAlignment(Pos.TOP_CENTER);
         var scene = new Scene(paneRoot, 640, 480);
         stage.setScene(scene);
         stage.show();
+        
+        //Imagen de fondo
+        HBox banner = new HBox(10);
+        banner.setAlignment(Pos.CENTER);
+        Image img = new Image(getClass().getResourceAsStream("/images/banner.jpg"));
+        ImageView imgView = new ImageView(img);
+        banner.getChildren().add(imgView);
+        paneRoot.getChildren().add(banner);
+        
         // Crea el primer y unico juego
         Juego juego1 = new Juego("Elden Ring");
         System.out.println(juego1.getTitulo());
@@ -94,13 +105,13 @@ public class App extends Application {
                 labelPrecio.setFont(fontVerde);
                 labelPrecio.setTextFill(Color.GREEN);
             }
-            //Si las horas no superan 20 se ponen en verde si la superan se pone en rojo
+            //Si las horas no superan 50 se ponen en verde si la superan se pone en rojo
             if(juegos.getListaJuegos().get(juegoActual).getMediaHoras() > 50 ) {
-                labelPrecio.setFont(fontRojo);
-                labelPrecio.setTextFill(Color.RED);
+                labelHoras.setFont(fontRojo);
+                labelHoras.setTextFill(Color.RED);
             }else{
-                labelPrecio.setFont(fontVerde);
-                labelPrecio.setTextFill(Color.GREEN);
+                labelHoras.setFont(fontVerde);
+                labelHoras.setTextFill(Color.GREEN);
             }
             System.out.println("has pulsado");
             juegos.fusionarLibros(stage);
@@ -131,8 +142,8 @@ public class App extends Application {
                 labelPrecio.setFont(fontVerde);
                 labelPrecio.setTextFill(Color.GREEN);
             }
-            //Si las horas no superan 20 se ponen en verde si la superan se pone en rojo
-            if(juegos.getListaJuegos().get(juegoActual).getMediaHoras() > 20 ) {
+            //Si las horas no superan 50 se ponen en verde si la superan se pone en rojo
+            if(juegos.getListaJuegos().get(juegoActual).getMediaHoras() > 50 ) {
                 labelPrecio.setFont(fontRojo);
                 labelPrecio.setTextFill(Color.RED);
             }else{
@@ -170,8 +181,8 @@ public class App extends Application {
                 labelPrecio.setFont(fontVerde);
                 labelPrecio.setTextFill(Color.GREEN);
             }
-            //Si las horas no superan 20 se ponen en verde si la superan se pone en rojo
-            if(juegos.getListaJuegos().get(juegoActual).getMediaHoras() > 20 ) {
+            //Si las horas no superan 50 se ponen en verde si la superan se pone en rojo
+            if(juegos.getListaJuegos().get(juegoActual).getMediaHoras() > 50 ) {
                 labelHoras.setFont(fontRojo);
                 labelHoras.setTextFill(Color.RED);
             }else{
